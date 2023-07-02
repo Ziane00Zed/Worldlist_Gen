@@ -21,10 +21,10 @@ public class character implements consoleColor {
         String[] world;
 
     public  File file1;
-
+            
             public character(String ch)
             {    
-
+                
                 this.WorldlistName=ch;
                 System.out.print("\nEnter the firstname: ");
                     this.firstname=sc.nextLine();list.add(this.firstname);// * Firstname |index 0
@@ -95,36 +95,41 @@ public class character implements consoleColor {
 
                     for( i = 0; i <list.size(); i++)
                         {
+                            //System.out.println("Test0");            //! test
                             for( j = 0; j < list.size();j++)
-                                {
+                                { // System.out.println("Test1");            //! test
                                    writer.append(corrector(minLength,list.get(i)+list.get(j))+"\n");
                                    writer.append(corrector(minLength,list.get(i)+list.get(j)+tab[rand.nextInt(tab.length)])+"\n");
                                    if(en==0)
                                     {
                                         for(int h=0;h<childrentab.length;h++)
-                                        {
+                                        {        //System.out.println("Test 2");  //! test
                                              writer.append(corrector(minLength,childrentab[h]+list.get(i)+list.get(j))+"\n");
+                                             System.out.println("Test2");  
                                              if(h!=0)
                                              {
+                                                //System.out.println("Test3");            //! test
                                                  writer.append(corrector(minLength,childrentab[h-1]+childrentab[h])+"\n");
                                              }
                                              else{
                                                  writer.append(corrector(minLength,childrentab[h]+list.get(rand.nextInt(list.size())))+"\n");
                                              }  
                                         }    
-                                    }  
+                                    } 
+                                    en=1;
+                                   
                                 }
-                                    if(i%2==0)
-                                        {
-                                            writer.append(corrector(minLength,list.get(rand.nextInt(list.size()))+list.get(rand.nextInt(list.size()))+tab[rand.nextInt(tab.length)])+"\n");
+                             if(i%2==0)
+                                        {//System.out.println("Test4");              //! test
+                                            System.out.println(corrector(minLength,list.get(rand.nextInt(list.size()))+list.get(rand.nextInt(list.size()))+tab[rand.nextInt(tab.length)])+"\n");
                                         }
                                         else
                                         {
+                                         //   System.out.println("Test5");              //! test
                                             writer.append(corrector(minLength,list.get(i)+getRandArrayElement()+list.get(rand.nextInt(list.size()))+tab[rand.nextInt(tab.length)])+"\n");
                                             writer.append(corrector(minLength,list.get(rand.nextInt(list.size()))+getRandArrayElement()+tab[rand.nextInt(tab.length)])+"\n");
-                                        }
+                                        }         
                         }
-                       
                          for( i = 0; i <list.size(); i++)
                             {
                                 for( j = 0; j < list.size();j++)
@@ -134,12 +139,6 @@ public class character implements consoleColor {
                                             System.out.println(corrector(minLength,list.get(i)).substring(0,list.get(i).length()/2)+list.get(j).substring(0,list.get(j).length()/2)+tab[rand.nextInt(tab.length)]);
                                         }
                                 }
-                                
-                                
-                               
-                                
-                               
-
                             }
                              writer.close();
                           
@@ -159,8 +158,9 @@ public class character implements consoleColor {
 
             return items[rand.nextInt(items.length)]; 
        }
+
        public String corrector(int min,String var)
-       {String test="";
+       {/*String test="";
             if(var.length()<min)
             { while(var.length()<min)
                 {
@@ -168,7 +168,8 @@ public class character implements consoleColor {
                 }
                 return test;
             }
-            else{return var;}   
+            else{return var;}  */
+            return var;
        }
 
        
